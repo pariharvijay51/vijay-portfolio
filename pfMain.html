@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vijay Singh Parihar | Java Developer & AI Automation</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',system-ui,sans-serif;color:#fff}
+html{scroll-behavior:smooth}
+body{min-height:100%;width:100%;background:radial-gradient(circle at 20% 20%,#16310a,#040903 70%);overflow-x:hidden}
+a{text-decoration:none}
+#cursor{height:20px;width:20px;background:#95C11E;border-radius:50%;position:fixed;z-index:99;pointer-events:none;transition:scale .2s}
+#cursor-blur{height:500px;width:500px;background:#96c11e38;border-radius:50%;position:fixed;z-index:9;filter:blur(40px);pointer-events:none}
+@media(hover:none){#cursor,#cursor-blur{display:none}}
+#nav{height:100px;width:100%;display:flex;align-items:center;padding:0 150px;gap:50px;position:fixed;z-index:99;top:0}
+#nav .logo{font-weight:900;font-size:26px;letter-spacing:1px;color:#95C11E}
+#nav a{text-transform:uppercase;font-weight:500;font-size:16px}
+#nav a:hover{color:#95C11E}
+video{height:100%;width:100%;object-fit:cover;position:fixed;top:0;left:0;z-index:-1}
+#main{position:relative;background:rgba(0,0,0,.37)}
+#page1{min-height:100vh;width:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;position:relative;z-index:10;padding:0 20px}
+#page1{padding:120px 20px 40px}
+.hi{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:500;padding:8px 18px;border:1px solid #95C11E88;border-radius:40px;background:rgba(0,0,0,.35);margin-bottom:24px}
+.hi i{width:9px;height:9px;border-radius:50%;background:#95C11E;box-shadow:0 0 12px #95C11E}
+#page1 h1{font-size:clamp(44px,min(9.5vw,17vh),130px);font-weight:900;line-height:1.02;letter-spacing:-1px;text-transform:uppercase}
+#page1 h1 span{display:block}
+#page1 h1 .n1{color:#fff}
+#page1 h1 .n2{color:transparent;-webkit-text-stroke:2px #95C11E;transition:color .4s}
+#page1 h1 .n2:hover{color:#95C11E}
+.bar{width:120px;height:6px;border-radius:6px;background:linear-gradient(90deg,#95C11E,#ACE022);margin:24px auto 22px}
+#page1 h2{font-size:clamp(14px,2vw,20px);font-weight:500;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:0 0 20px}
+#page1 h2 span{padding:7px 16px;border-radius:30px;background:#95C11E;color:#000;font-weight:800}
+#page1 p{font-size:18px;line-height:1.6;width:min(620px,90%)}
+.btns{display:flex;gap:16px;margin-top:30px;flex-wrap:wrap;justify-content:center}
+.btn{padding:14px 28px;border-radius:40px;border:2px solid #95C11E;font-weight:800;text-transform:uppercase;font-size:14px;transition:.3s}
+.btn.fill,.btn:hover{background:#95C11E;color:#000}
+.btn.fill{color:#000}.btn:hover{color:#000}
+#page2{min-height:100vh;position:relative;z-index:10}
+#scroller{white-space:nowrap;overflow-x:auto;overflow-y:hidden;position:relative;z-index:10}
+#scroller::-webkit-scrollbar{display:none}
+.scroller-in{display:inline-block;white-space:nowrap;animation:scroll 18s linear infinite}
+#scroller h4{display:inline-block;font-size:120px;font-weight:900;font-family:'Courier New',monospace;margin-right:30px;-webkit-text-stroke:2px #789c15;color:transparent;transition:color .5s linear}
+#scroller h4:hover{color:#95C11E}
+@keyframes scroll{from{transform:translate(0)}to{transform:translate(-100%)}}
+#about-us{min-height:60vh;padding:60px 50px;display:flex;align-items:center;justify-content:space-around;gap:30px;position:relative;z-index:10}
+.stat{height:220px;width:220px;border-radius:20px;background:rgba(149,193,30,.15);border:2px solid #95C11E;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px}
+.stat b{font-size:60px;font-weight:900;color:#95C11E;line-height:1}
+.stat span{font-size:16px;margin-top:8px}
+#about-us-in{width:40%;text-align:center}
+#about-us-in h3{font-size:54px;font-weight:800;margin-bottom:30px}
+#about-us-in p{font-size:19px;line-height:28px}
+#skills{padding:60px 50px;position:relative;z-index:10;text-align:center}
+#skills h3{font-size:54px;font-weight:800;margin-bottom:40px}
+.sk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1100px;margin:0 auto;text-align:left}
+.sk{border:1px solid rgba(149,193,30,.5);border-radius:20px;padding:24px;background:rgba(0,0,0,.35)}
+.sk h5{font-size:20px;color:#95C11E;margin-bottom:14px;font-weight:800}
+.sk span{display:inline-block;margin:0 6px 8px 0;padding:6px 14px;border-radius:30px;border:1px solid #fff4;font-size:14px;transition:.3s}
+.sk span:hover{background:#95C11E;color:#000;border-color:#95C11E}
+#cards-container{min-height:70vh;display:flex;align-items:center;justify-content:center;gap:50px;padding:40px 30px;position:relative;z-index:10}
+.card{height:460px;width:26%;min-width:260px;border-radius:20px;background-size:cover;background-position:center;overflow:hidden;transition:all ease .6s}
+#card1{background-image:linear-gradient(160deg,#1c4a0a,#0a1a05)}
+#card2{background-image:linear-gradient(160deg,#c21178,#3a0a2a)}
+#card3{background-image:linear-gradient(160deg,#11c722,#08300c)}
+.card .label{position:absolute;padding:30px;font-size:30px;font-weight:900;text-transform:uppercase;pointer-events:none}
+.card{position:relative}
+.overlay{height:100%;width:100%;background:#95C11E;padding:30px;padding-top:80px;opacity:0;transition:all ease .6s;overflow:auto}
+.overlay h4{color:#000;font-size:28px;text-transform:uppercase;margin-bottom:14px;font-weight:900}
+.overlay p,.overlay li,.overlay small{color:#000;font-size:16px;line-height:1.5}
+.overlay ul{padding-left:18px}.overlay small{display:block;margin-top:14px;font-weight:800}
+.card:hover .overlay{opacity:1}
+.card:hover{transform:rotate3d(-1,1,0,20deg)}
+@media(hover:none){.overlay{opacity:1}}
+#green-div{min-height:30vh;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to left bottom,#11c722,#ACE022);position:relative;z-index:10;overflow:hidden}
+#green-div h4{width:45%;line-height:44px;color:#000;text-align:center;font-weight:800;font-size:27px;text-transform:uppercase;padding:20px 0}
+.dots{width:14%;height:100%;min-height:30vh;background-image:radial-gradient(#00000055 3px,transparent 3px);background-size:22px 22px}
+#page3{min-height:100vh;width:100%;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:50px;position:relative;z-index:10;padding:100px 20px}
+#page3 h3{font-size:clamp(32px,5vw,54px);font-weight:800;text-align:center}
+.edu{display:flex;gap:30px;flex-wrap:wrap;justify-content:center;max-width:1100px;width:100%}
+.box{flex:1;min-width:300px;border:1px solid #95C11E88;border-radius:20px;padding:28px}
+.box h5{font-size:22px;margin-bottom:10px;color:#95C11E}
+.row{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-top:1px solid #fff3;font-size:15px}
+.cert{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-top:1px solid #fff3;font-size:15px}
+.cert a{flex:none;font-size:13px;font-weight:800;padding:5px 14px;border-radius:30px;border:1.5px solid #95C11E;color:#95C11E;transition:.3s}
+.cert a:hover{background:#95C11E;color:#000}
+.quote{position:relative;text-align:center;max-width:800px;font-size:clamp(22px,3vw,35px);font-weight:700;line-height:1.3;padding:0 20px}
+.quote::before,.quote::after{font-size:90px;color:#95C11E;position:absolute;line-height:1}
+.quote::before{content:"\201C";left:-30px;top:-30px}.quote::after{content:"\201D";right:-30px;bottom:-60px}
+.links{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+footer{background:#000;text-align:center;padding:20px 0 30px;font-size:14px;color:#aaa;position:relative;z-index:10}
+@media(max-width:900px){
+#nav{padding:0 20px;gap:18px;overflow-x:auto;height:80px}#nav a{font-size:12px;white-space:nowrap}
+#about-us{flex-direction:column}#about-us-in{width:100%;order:-1}
+#scroller h4{font-size:70px}
+#cards-container{flex-direction:column;height:auto}.card{width:100%;max-width:420px}
+#green-div h4{width:80%;font-size:18px;line-height:30px}.dots{width:10%}
+#skills,#about-us{padding:50px 20px}
+}
+@media(prefers-reduced-motion:reduce){.scroller-in{animation:none}}
+</style>
+</head>
+<body>
+<div id="nav">
+  <a class="logo" href="#page1">VIJAY</a>
+  <a href="#about-us">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#cards-container">Projects</a>
+  <a href="#page3">Education</a>
+  <a href="#green-div">Contact</a>
+</div>
+<div id="cursor"></div>
+<div id="cursor-blur"></div>
+<video autoplay muted loop playsinline>
+  <source src="videoback.mp4" type="video/mp4">
+</video>
+
+<div id="main">
+  <div id="page1">
+    <div class="hi"><i></i>Open to internships and entry-level roles</div>
+    <h1><span class="n1">Vijay Singh</span><span class="n2">Parihar</span></h1>
+    <div class="bar"></div>
+    <h2><span>Java Developer</span><span>DSA</span><span>AI Automation</span></h2>
+    <p>Computer Science undergraduate from Bhopal. I write Java every day, build full-stack apps with React and Node.js, and automate workflows with n8n and Google Gemini. Open to internships and entry-level roles.</p>
+    <div class="btns">
+      <a class="btn fill" href="#cards-container">See my projects</a>
+      <a class="btn" href="#green-div">Get in touch</a>
+    </div>
+  </div>
+
+  <div id="page2">
+    <div id="scroller">
+      <div class="scroller-in"><h4>JAVA</h4><h4>DSA</h4><h4>REACT</h4><h4>NODE.JS</h4><h4>SQL</h4><h4>N8N</h4></div><div class="scroller-in" aria-hidden="true"><h4>JAVA</h4><h4>DSA</h4><h4>REACT</h4><h4>NODE.JS</h4><h4>SQL</h4><h4>N8N</h4></div>
+    </div>
+
+    <div id="about-us">
+      <div class="stat"><b data-n="250" data-s="+">0</b><span>coding problems solved</span></div>
+      <div id="about-us-in">
+        <h3>ABOUT ME</h3>
+        <p>Problem solver first, builder always. I enjoy turning algorithms into working products, from a Java core and data structures to web apps and AI-powered automation.</p>
+      </div>
+      <div class="stat"><b data-n="7.47" data-d="2">0</b><span>CGPA, B.Tech CSE</span></div>
+    </div>
+
+    <div id="skills">
+      <h3>WHAT I WORK WITH</h3>
+      <div class="sk-grid">
+        <div class="sk"><h5>Languages</h5><span>Java</span><span>SQL</span><span>C++</span><span>JavaScript</span></div>
+        <div class="sk"><h5>Java and CS core</h5><span>OOP</span><span>Collections</span><span>Exception Handling</span><span>DSA</span><span>DBMS</span><span>Operating Systems</span><span>Computer Networks</span><span>Time Complexity</span></div>
+        <div class="sk"><h5>Web development</h5><span>HTML</span><span>CSS</span><span>React.js</span><span>Node.js</span><span>Express.js</span><span>REST API</span></div>
+        <div class="sk"><h5>Automation and AI</h5><span>n8n</span><span>Google Gemini</span><span>WhatsApp Cloud API</span><span>Gmail API</span></div>
+        <div class="sk"><h5>Databases</h5><span>MySQL</span><span>Google Sheets</span></div>
+        <div class="sk"><h5>Tools</h5><span>Git</span><span>VS Code</span><span>IntelliJ IDEA</span></div>
+      </div>
+    </div>
+
+    <div id="cards-container">
+      <div class="card" id="card1">
+        <div class="label">AI Resume Analyzer</div>
+        <div class="overlay">
+          <h4>AI Resume Analyzer and Job Matcher</h4>
+          <ul><li>Compares a resume with a job description: matched skills, missing skills, keywords.</li><li>Parses PDF resumes and uses Gemini to suggest improvements.</li><li>Interactive React dashboard backed by REST APIs and MySQL.</li></ul>
+          <small>React.js · Node.js · Express.js · MySQL · Gemini</small>
+        </div>
+      </div>
+      <div class="card" id="card2">
+        <div class="label">FreshMart Web App</div>
+        <div class="overlay">
+          <h4>FreshMart Web App</h4>
+          <ul><li>Responsive grocery delivery app for mobile, tablet and desktop.</li><li>Interactive ordering flow tuned for usability and speed.</li></ul>
+          <small>HTML · CSS · JavaScript</small>
+        </div>
+      </div>
+      <div class="card" id="card3">
+        <div class="label">Automation</div>
+        <div class="overlay">
+          <h4>AI Automation</h4>
+          <p>Workflows built with n8n, Google Gemini, WhatsApp Cloud API, Gmail API and Google Sheets.</p>
+          <small>n8n · Gemini · WhatsApp · Gmail</small>
+        </div>
+      </div>
+    </div>
+
+    <div id="green-div">
+      <div class="dots"></div>
+      <h4>Let's build something together.<br>Email, call or connect below</h4>
+      <div class="dots"></div>
+    </div>
+  </div>
+
+  <div id="page3">
+    <h3>EDUCATION AND CERTIFICATIONS</h3>
+    <div class="edu">
+      <div class="box">
+        <h5>Oriental College of Technology</h5>
+        <p style="margin-bottom:10px;font-size:15px">B.Tech, Computer Science Engineering, 2023 to 2027</p>
+        <div class="row"><b>CGPA</b><span>7.47</span></div>
+        <div class="row"><b>Class XII, 2023</b><span>67%, CBSE</span></div>
+        <div class="row"><b>Class X, 2021</b><span>79%, CBSE</span></div>
+        <div class="row"><b>School</b><span>Swami Vivekanand Public School, Nagod</span></div>
+      </div>
+      <div class="box"><h5>Certifications</h5><div id="certs"></div></div>
+    </div>
+    <p class="quote">I'm looking for roles where I can write Java, solve hard problems and ship useful products.</p>
+    <div class="links">
+      <a class="btn fill" href="mailto:pariharvijaysingh636@gmail.com">Email me</a>
+      <a class="btn" href="tel:+919977138213">+91-9977138213</a>
+      <a class="btn" href="https://www.linkedin.com/in/vijay-singh-parihar" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://leetcode.com/u/Vijaysinghparihar/" target="_blank" rel="noopener">LeetCode</a>
+    </div>
+  </div>
+  <footer>&copy; 2026 Vijay Singh Parihar &middot; Bhopal, India</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script>
+var crsr=document.querySelector("#cursor"),blur=document.querySelector("#cursor-blur");
+document.addEventListener("mousemove",function(d){
+  crsr.style.left=d.x+"px";crsr.style.top=d.y+"px";
+  blur.style.left=d.x-250+"px";blur.style.top=d.y-250+"px";
+});
+document.querySelectorAll("#nav a, .btn").forEach(function(el){
+  el.addEventListener("mouseenter",function(){crsr.style.scale=3;crsr.style.border="1px solid #fff";crsr.style.backgroundColor="transparent"});
+  el.addEventListener("mouseleave",function(){crsr.style.scale=1;crsr.style.border="1px solid #95C11E";crsr.style.backgroundColor="#95C11E"});
+});
+
+var CERTS=[
+ {name:"NPTEL: Programming in Java (Gold)",doc:"certificate/NPTEL26CS36S85240163904738630 (1).pdf"},
+ {name:"NPTEL: Data Structures and Algorithms Design (Elite)",doc:"certificate/Data Structures and Algorithms Design (1).pdf"},
+ {name:"Microsoft Azure Internship on Emerging Technologies",doc:"certificate/Microsoft Azure.pdf"},
+ {name:"TCS iON Career Edge: Young Professional",doc:"certificate/Vijay_Parihar_5097848  Tcs ion certificate.pdf"},
+ {name:"250+ problems solved on LeetCode",doc:"https://leetcode.com/u/Vijaysinghparihar/"}
+];
+document.getElementById("certs").innerHTML=CERTS.map(function(c){
+  return '<div class="cert"><div>★ '+c.name+'</div><a href="'+encodeURI(c.doc)+'" target="_blank" rel="noopener">View</a></div>';
+}).join("");
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.to("#nav",{backgroundColor:"#000",height:"90px",duration:.5,scrollTrigger:{trigger:"#nav",start:"top top",end:"top -10%",scrub:1}});
+gsap.to("#main",{backgroundColor:"#000",scrollTrigger:{trigger:"#main",start:"top -25%",end:"top -70%",scrub:1}});
+
+document.querySelectorAll("[data-n]").forEach(function(el){
+  var to=+el.dataset.n,d=+el.dataset.d||0,s=el.dataset.s||"",o={v:0};
+  ScrollTrigger.create({trigger:el,start:"top 85%",once:true,onEnter:function(){
+    gsap.to(o,{v:to,duration:1.6,ease:"power3.out",onUpdate:function(){el.textContent=o.v.toFixed(d)+s}});
+  }});
+});
+</script>
+</body>
+</html>
